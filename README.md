@@ -1,4 +1,4 @@
-# 2026 NFL Draft — Jets & Giants Analysis
+# 2026 NFL Draft: Jets & Giants Analysis
 
 Analysis and data for the 2026 NFL Draft, with a focus on the New York Jets and Giants.
 
