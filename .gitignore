@@ -1,0 +1,7 @@
+archive/
+raw data.xlsx
+*.xlsx~
+~$*.xlsx
+__pycache__/
+*.pyc
+.DS_Store

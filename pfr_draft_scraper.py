@@ -3,28 +3,27 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import time
 
+# Exploratory scraper for Pro Football Reference draft data (1994-2024).
+# The final analysis pipeline used nflverse instead — see combine.csv and the
+# nflverse import instructions in the README.
+
 all_picks = []
 
 for year in range(1994, 2025):
     url = f"https://www.pro-football-reference.com/years/{year}/draft.htm"
     headers = {"User-Agent": "Mozilla/5.0"}
-    
+
     try:
         response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.content, "lxml")
-        
-        # Print all table IDs for debugging
+
         tables = soup.find_all("table")
-        table_ids = [t.get("id") for t in tables]
-        print(f"{year}: found tables: {table_ids}")
-        
-        # Try to grab any table on the page
         table = None
         for t in tables:
             if t.get("id"):
                 table = t
                 break
-        
+
         if not table:
             print(f"{year}: no table found, skipping")
             continue
